@@ -47,6 +47,8 @@ Word match rate:          41.938%
  († Adjusted to reflect multiple possible correct readings)
 ```
 
+Since yesterday was the Lunar New Year, I tried putting in "新年快楽". It guessed "shen1 nian3 kuai4 e4", so I wish everyone "身碾快饿"!
+
 ## Description
 The data source is (http://www.edrdg.org/kanjidic/kanjidic.html "KANJIDIC"), which contains the readings for over 6k characters in Mandarin, Korean, Japanese (kun-yomi, or native reading, which we don't use, and on-yomi, the Chinese-derived reading, which we do). Because not all diachronic phonological changes are completely regular/predictable, it will be impossible to get perfect results. One added complexity is that in any language, a single character may have multiple pronunciations. Potentially, this model might suggest hypothetical ways to## "regularize" unexpected Mandarin pronunciations, though native speakers are unlikely to appreciate these *suggestions for improvement*. :P 
 
