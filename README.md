@@ -68,7 +68,7 @@ Before starting:
  - Install romkan: https://pypi.python.org/pypi/romkan
  - Have keras set up and ready to go
  
- Then, from the command line, if kanjidic file is your cwd, you can call:
+ Then, from the command line, if kanjidic file is in your cwd, you can call:
   ```>> python cjk_nn.py```
  
  Arguments:
