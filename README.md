@@ -48,11 +48,11 @@ Word match rate:          41.938%
 ```
 
 ## Description
-The data source is (http://www.edrdg.org/kanjidic/kanjidic.html "KANJIDIC"), which contains the readings for over 6k characters in Mandarin, Korean, Japanese (kun-yomi, or native reading, which we don't use, and on-yomi, the Chinese-derived reading, which we do). Because not all diachronic phonological changes are completely regular/predictable, it will be impossible to get perfect results. One added complexity is that in any language, a single character may have multiple pronunciations. Potentially, this model might suggest hypothetical ways to## "regularize" unexpected Mandarin pronounciations, though native speakers are unlikely to appreciate these *suggestions for improvement*. :P 
+The data source is (http://www.edrdg.org/kanjidic/kanjidic.html "KANJIDIC"), which contains the readings for over 6k characters in Mandarin, Korean, Japanese (kun-yomi, or native reading, which we don't use, and on-yomi, the Chinese-derived reading, which we do). Because not all diachronic phonological changes are completely regular/predictable, it will be impossible to get perfect results. One added complexity is that in any language, a single character may have multiple pronunciations. Potentially, this model might suggest hypothetical ways to## "regularize" unexpected Mandarin pronunciations, though native speakers are unlikely to appreciate these *suggestions for improvement*. :P 
 
 The input data (Korean and Japanese readings) are padded because of variable length and then concatenated together. To generate a numerical representation for training, (Latin alphabet) characters are converted to floats. Of course, this is not a true continuous representation. It would be interesting to see how word or **character embeddings** changes performance.
 
-Since Mandarin's phonemic inventory is not too large, I am able I treat the task as one of **syllable classification**, where the output layer is a one-hot vector corresponding to all syllable structures observed in the training data (around 1200, or fewer than 400 if we ignore tones). The allows the model to already "know" Mandarin phonotactics and possibly helps by having orthographically close syllables close in the vector. However, this approach might not be advisable for lanaguages with many possible syllables, such as English or German.
+Since Mandarin's phonemic inventory is not too large, I am able I treat the task as one of **syllable classification**, where the output layer is a one-hot vector corresponding to all syllable structures observed in the training data (around 1200, or fewer than 400 if we ignore tones). The allows the model to already "know" Mandarin phonotactics and possibly helps by having orthographically close syllables close in the vector. However, this approach might not be advisable for languages with many possible syllables, such as English or German.
 
 Thus, the **architecture** is: 
 
@@ -73,7 +73,7 @@ Before starting:
  -e, --epochs     Number of training epochs, default to 20. My CPU took 2s per epoch.
  -g, --guess      Optionally specify characters for trained model to predict.
  -k, --korean     Set to 0 to train without Korean data. Empirically halved accuracy.
- -j, --japanese   Set to 0 to train without Japanese data. Embirically halved accuracy.
+ -j, --japanese   Set to 0 to train without Japanese data. Empirically halved accuracy.
  ```
 ## TODO
 
@@ -82,4 +82,4 @@ Before starting:
 - Add additional relevant languages (Vietnamese, Cantonese, ...)
 
   (Not just to boost performance, but to find **linguistic insights**)
-- Look into applying a similar (or tweaked) appraoch to other languages eg: English+Dutch to guess Swedish.
+- Look into applying a similar (or tweaked) approach to other languages eg: English+Dutch to guess Swedish.
